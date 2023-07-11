@@ -32,6 +32,20 @@ export default function Home() {
           <Card />
         </div>
       </div>
+      <div className='category-wrapper'>
+        <div className='category-title'>Sci-Fi</div> {/* Category title */}
+        <div className='category-description'> {/* Category description */}
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam
+        </div>
+        <div className='category-cards'>
+          <Card />
+          <Card />
+          <Card />
+          <Card />
+          <Card />
+          <Card />
+        </div>
+      </div>
     </div>
   )
 }
