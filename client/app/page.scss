@@ -1,0 +1,47 @@
+/* 
+  Main page styles:
+    This are the styles for the main page, it contains the styles for the categories and the cards, it does not contain styles for nav or footer.
+  
+  TODO:
+    * Add animations
+    * Still need to make cards not shrink when window is resized
+    ! Make the page responsive
+    ? Add more styles
+    ? Add variables to make it easier to change colors
+    ? Divide styles into sections
+*/
+
+.main-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+
+  .category-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: left;
+    width: 100%;
+    padding: 20px 0 0 20px;
+
+    .category-title {
+      font-size: 1.5em;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    .category-description {
+      font-size: 1em;
+      margin-bottom: 20px;
+    }
+
+    .category-cards {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+    }
+  }
+}

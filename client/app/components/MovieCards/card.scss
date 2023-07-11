@@ -1,6 +1,17 @@
+/* 
+  Cards styles:
+    This are the styles for the cards.
+
+    TODO:
+      * Add other styles
+      * Add variables to make it easier to change colors
+      ! make it responsive
+*/
+
 .card-wrapper {
   width: 250px;
   height: 400px;
   border: 1px solid black;
   border-radius: 5px;
+  margin: 10px;
 }
