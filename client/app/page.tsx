@@ -1,8 +1,11 @@
+import React from 'react'
+import Card from './components/MovieCards/Card'
 
 export default function Home() {
   return (
-    <main>
-      Hello World!
-    </main>
+    <div>
+      Movies
+      <Card />
+    </div>
   )
 }

@@ -1,4 +1,6 @@
 import type { Metadata } from 'next'
+import Nav from './components/Nav/Nav'
+import './layout.scss'
 
 export const metadata: Metadata = {
   title: 'Movie Website',
@@ -12,7 +14,13 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        <Nav />
+        <main>
+          {children}
+        </main>
+        {/* Footer */}
+      </body>
     </html>
   )
 }

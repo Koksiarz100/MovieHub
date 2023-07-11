@@ -1,8 +1,7 @@
 import type { Metadata } from 'next'
-import Nav from './components/Nav/Nav'
 
 export const metadata: Metadata = {
-  title: 'Movie Website',
+  title: 'Dashboard',
   description: 'In progress',
 }
 
@@ -12,13 +11,8 @@ export default function DashboardLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
-      <body>
-        <Nav />
-        <main>
-          {children}
-        </main>
-      </body>
-    </html>
+    <main>
+      {children}
+    </main>
   )
 }
