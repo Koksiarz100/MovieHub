@@ -7,10 +7,19 @@ import ig from './assets/insta.png'
 import tw from './assets/twitter.png'
 import yt from './assets/yt.png'
 
+/* 
+  Footer component:
+    This is the footer component that is displayed on every page.
+
+  TODO:
+    * Add social media links
+    * Add contact information
+*/
+
 export default function Footer() {
   return (
     <footer>
-      <div className='footer-section'>
+      <div className='footer-section'> {/* Menu section */}
         <div className='footer-title'>
           Menu
         </div>
@@ -28,7 +37,7 @@ export default function Footer() {
           </ul>
         </div>
       </div>
-      <div className='footer-section'>
+      <div className='footer-section'> {/* Socials section */}
         <div className='footer-title'>
           Socials
         </div>
@@ -39,7 +48,7 @@ export default function Footer() {
           <Image src={yt} alt='yt' className='footer-social' />
         </div>
       </div>
-      <div className='footer-section'>
+      <div className='footer-section'> {/* Contact section */}
         <div className='footer-title'>
           Contact
         </div>

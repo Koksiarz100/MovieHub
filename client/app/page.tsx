@@ -2,6 +2,7 @@ import React from 'react'
 import './page.scss'
 
 import Category from './components/Categories/Categories'
+import Banner from './components/Banner/Banner'
 
 /* 
   Home Page:
@@ -83,6 +84,7 @@ export default function Home() {
     <div className='main-wrapper'>
       <Category category={Categories[0]}/> {/* This is the new movies category, so it will always be there */}
       <Category category={Categories[RandomCategories[1]]}/>
+      <Banner /> {/* Banner */}
       <Category category={Categories[RandomCategories[2]]}/>
       <Category category={Categories[RandomCategories[3]]}/>
       <Category category={Categories[RandomCategories[4]]}/>
