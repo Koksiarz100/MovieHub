@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
-import Nav from './components/Nav/Nav'
+import Nav from './components/Layout/Nav/Nav'
+import Footer from './components/Layout/Footer/Footer'
 import './layout.scss'
 
 /* 
@@ -24,7 +25,7 @@ export default function RootLayout({
         <main>
           {children}
         </main>
-        {/* Footer */}
+        <Footer />
       </body>
     </html>
   )

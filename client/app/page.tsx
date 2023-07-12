@@ -71,7 +71,7 @@ export default function Home() {
 
   const RandomCategories: Array<number> = [0]; // 0 is the new movies category, so it will always be there
   for (let i = 0; i < 5; i++) {
-    let RandomNumber = Math.floor(Math.random() * Categories.length);
+    let RandomNumber : number = Math.floor(Math.random() * Categories.length);
     if (RandomCategories.includes(RandomNumber)) {
       i--;
       continue;
