@@ -1,5 +1,8 @@
 import React from 'react'
 import './card.scss'
+import Image from 'next/image'
+import add from './assets/add.png'
+import play from './assets/play.png'
 
 /* 
   Card Component:
@@ -30,11 +33,15 @@ export default function Card(props: any) {
             {props.description}
           </div>
           <div className='card-rating'> {/* Card Rating */}
-            {props.rating}
+            Rating: {props.rating}
           </div>
           <div className='card-buttons'> {/* Card Buttons */}
-            <button className='card-button'>Watch</button>
-            <button className='card-button'>Add to Watchlist</button>
+            <button className='card-button'>
+              <Image src={play} alt='Play button' className='button-play'/> {/* Play button, get from assets */}
+            </button>
+            <button className='card-button'>
+              <Image src={add} alt='Play button' className='button-add'/> {/* Add button, get from assets */}
+            </button>
           </div>
         </div>
       </div>
