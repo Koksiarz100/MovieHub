@@ -7,7 +7,7 @@ export default function Nav() {
   return (
     <nav>
       <div className='nav-logo'>
-        MovieHub
+        <Link href="../">MovieHub</Link>
       </div>
       <div className='nav-links'>
         <ul>
