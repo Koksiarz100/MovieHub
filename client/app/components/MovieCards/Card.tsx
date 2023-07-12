@@ -1,5 +1,6 @@
 import React from 'react'
 import './card.scss'
+
 import Image from 'next/image'
 import add from './assets/add.png'
 import play from './assets/play.png'
@@ -44,9 +45,6 @@ export default function Card(props: any) {
             </button>
           </div>
         </div>
-      </div>
-      <div className='card-footer'> {/* Card Footer */}
-        
       </div>
     </div>
   )

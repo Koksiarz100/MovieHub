@@ -1,4 +1,5 @@
 import React from 'react'
+import Link from 'next/link'
 import './nav.scss'
 
 function Nav() {
@@ -6,10 +7,13 @@ function Nav() {
     <nav>
       <ul>
         <li>
-          <a href="../">Movies</a>
+          <Link href="../">Movies</Link>
         </li>
         <li>
-          <a href="/dashboard">Dashboard</a>
+          <Link href="../">Series</Link>
+        </li>
+        <li>
+          <Link href="/dashboard">Dashboard</Link>
         </li>
       </ul>
     </nav>

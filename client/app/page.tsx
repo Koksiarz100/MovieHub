@@ -1,7 +1,7 @@
 import React from 'react'
-import Card from './components/MovieCards/Card'
 import './page.scss'
-import { title } from 'process';
+
+import Category from './components/Categories/Categories'
 
 /* 
   Home Page:
@@ -24,8 +24,13 @@ interface Info { // Interface for the movie info
   rating: string;
 }
 
+interface Category { // Interface for the category
+  title: string;
+  description: string;
+  movies?: Array<Info>;
+}
 
-// Just for now, this will be replaced with data from the database
+// !Just for now, this will be replaced with data from the database
 const New : Array<Info> = [
   {title: 'Movie 1', description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam', rating: '5'},
   {title: 'Movie 2', description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam', rating: '5'},
@@ -44,44 +49,27 @@ const SciFi : Array<Info> = [
   {title: 'Movie 12', description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam', rating: '4'},
 ]
 
-function MakingCards(props: any) {
-
-  const category = props.category
-
-  return (
-    <>
-      { // This will loop through the array and create a card for each item in the array, still need to add images and functions to buttons.
-        category.map((info: any, index: number) => {
-          return (
-            <Card key={index} title={info.title} description={info.description} rating={info.rating} />
-          )
-        })
-      }
-    </>
-  )
-}
+const Categories : Array<Category> = [ // Array of categories
+  {title: 'Brand New', description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam', movies: New},
+  {title: 'Sci-Fi', description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam', movies: SciFi},
+  {title: 'Action', description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam', movies: New},
+  {title: 'Comedy', description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam', movies: New},
+  {title: 'Horror', description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam', movies: New},
+  {title: 'Romance', description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam', movies: New},
+  {title: 'Drama', description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam', movies: New},
+  {title: 'Thriller', description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam', movies: New},
+  {title: 'Fantasy', description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam', movies: New},
+  {title: 'Mystery', description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam', movies: New},
+  {title: 'Crime', description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam', movies: New},
+  {title: 'Animation', description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam', movies: New},
+  {title: 'Adventure', description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam', movies: New},
+]
 
 export default function Home() {
   return (
     <div className='main-wrapper'>
-      <div className='category-wrapper'>
-        <div className='category-title'>Brand New</div> {/* Category title */}
-        <div className='category-description'> {/* Category description */}
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam
-        </div>
-        <div className='category-cards'>
-          <MakingCards category={New}/>
-        </div>
-      </div>
-      <div className='category-wrapper'>
-        <div className='category-title'>Sci-Fi</div> {/* Category title */}
-        <div className='category-description'> {/* Category description */}
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam
-        </div>
-        <div className='category-cards'>
-          <MakingCards category={SciFi}/>
-        </div>
-      </div>
+      <Category category={Categories[0]}/>
+      <Category category={Categories[1]}/>
     </div>
   )
 }
