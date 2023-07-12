@@ -1,8 +1,9 @@
-import React from 'react'
+'use client'
+
 import Link from 'next/link'
 import './nav.scss'
 
-function Nav() {
+export default function Nav() {
   return (
     <nav>
       <ul>
@@ -19,5 +20,3 @@ function Nav() {
     </nav>
   )
 }
-
-export default Nav

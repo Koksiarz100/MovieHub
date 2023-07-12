@@ -11,10 +11,9 @@ import play from './assets/play.png'
 
   TODO:
     * Add images to the card
-    * Add title to the card
-    * Add description to the card
     * Add rating to the card
-    * Add buttons to the card
+    * Add functions to the buttons
+    ! Find new icons for the buttons (so it fits)
     ! Load data from the database
     ? Need more documentation
 */
