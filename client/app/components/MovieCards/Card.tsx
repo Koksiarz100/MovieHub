@@ -15,7 +15,7 @@ import './card.scss'
     ? Need more documentation
 */
 
-export default function Card() {
+export default function Card(props: any) {
   return (
     <div className='card-wrapper'>
       <div className='card-head'> {/* Card Images */}
@@ -23,17 +23,18 @@ export default function Card() {
       </div>
       <div className='card-body'>
         <div className='card-title'> {/* Card Title */}
-        
+          {props.title}
         </div>
         <div className='card-content'>
           <div className='card-description'> {/* Card Description */}
-            
+            {props.description}
           </div>
           <div className='card-rating'> {/* Card Rating */}
-            
+            {props.rating}
           </div>
           <div className='card-buttons'> {/* Card Buttons */}
-            
+            <button className='card-button'>Watch</button>
+            <button className='card-button'>Add to Watchlist</button>
           </div>
         </div>
       </div>
