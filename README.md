@@ -1,7 +1,7 @@
 
 # MovieHub
 
-Project of a website with movies and TV shows, a small project with a client and a server side. The client side is built with Next.js, the server is yet to be determined. Mainly to learn Next.js and showcase skills in HTML, CSS, JS, and React.js.
+Project of a website with movies and TV shows, a small project with a client and a server side. The client side is built with Next.js, the server is yet to be determined. Mainly to learn Next.js and showcase skills in HTML, CSS, JS and React.js.
 
 **Very early development!**
 
