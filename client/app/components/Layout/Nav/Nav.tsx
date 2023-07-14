@@ -3,6 +3,15 @@
 import Link from 'next/link'
 import './nav.scss'
 
+/*
+  Nav Component:
+    This is the component that will be used to display the navigation bar on the home page.
+
+  TODO:
+    ! Make it responsive
+    * Add controls for mobile
+*/
+
 export default function Nav() {
   return (
     <nav>

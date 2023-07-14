@@ -87,7 +87,9 @@ export default function Home() {
       <Banner /> {/* Banner */}
       <Category category={Categories[RandomCategories[2]]}/>
       <Category category={Categories[RandomCategories[3]]}/>
+      <Banner /> {/* Banner */}
       <Category category={Categories[RandomCategories[4]]}/>
+      <Category category={Categories[RandomCategories[5]]}/>
     </div>
   )
 }
