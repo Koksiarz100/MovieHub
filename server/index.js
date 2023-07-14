@@ -1,12 +1,32 @@
 const fs = require("fs/promises");
 const express = require("express");
 const { v4: uuidv4 } = require("uuid");
+const jwt = require("jsonwebtoken");
 
 const app = express();
-
 console.log("Starting server...");
 
+const secretKey = 'secret';
+
 app.use(express.json());
+
+// Middleware to verify the token
+function authenticateToken(req, res, next) {
+  const token = req.headers['authorization'];
+
+  if (!token) {
+    return res.status(401).json({ message: 'No token provided' });
+  }
+
+  jwt.verify(token, secretKey, (err, user) => {
+    if (err) {
+      return res.status(403).json({ message: 'Invalid token' });
+    }
+
+    req.user = user;
+    next();
+  });
+}
 
 const movies = [
   {Title: "Movie 1", Description: "Description 1", Rating: 5},
@@ -21,18 +41,20 @@ app.get("/start", async (req, res) => {
   res.json(movies);
 });
 
-app.post("/backend", async (req, res) => {
-  const id = uuidv4();
-  const content = req.body.content;
+app.post("/auth", async (req, res) => {
+  const username = req.body.username;
+  const password = req.body.password;
 
-  if (!content) {
-    res.sendStatus(400);
-    return;
+  if (username === 'admin' && password === 'admin') {
+    const token = jwt.sign({ username }, secretKey, { expiresIn: '1h' });
+    return res.json({ token });
   }
 
-  console.log(content);
+  res.status(401).json({ message: 'Invalid credentials' });
+});
 
-  res.sendStatus(201);
+app.get('/protected', authenticateToken, (req, res) => {
+  res.json({ message: 'Protected route accessed successfully' });
 });
 
 app.listen(5000, () => console.log("Server started! Running on port 5000!"));
