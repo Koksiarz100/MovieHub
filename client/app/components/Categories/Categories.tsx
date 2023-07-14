@@ -1,5 +1,3 @@
-'use client'
-
 import Card from '../MovieCards/Card'
 
 /* 

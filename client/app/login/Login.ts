@@ -7,14 +7,13 @@ export default async function Login(username: string, password: string) {
     password: password,
   };
 
-  axios.post('http://localhost:5000/auth', data)
+  axios.post('http://localhost:5000/login', data)
 
   .then(response => {
     console.log('Response:', response.data);
-    // Handle the response data here
+    localStorage.setItem('token', response.data.token);
   })
   .catch(error => {
     console.error('Error:', error);
-    // Handle any errors here
   });
 }

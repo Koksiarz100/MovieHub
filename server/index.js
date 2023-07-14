@@ -44,7 +44,7 @@ app.get("/start", async (req, res) => {
   res.json(movies);
 });
 
-app.post("/auth", async (req, res) => {
+app.post("/login", async (req, res) => {
   const username = req.body.username;
   const password = req.body.password;
 

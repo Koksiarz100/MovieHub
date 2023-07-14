@@ -1,6 +1,7 @@
+'use client'
+
 import React from 'react'
 import { redirect } from 'next/navigation';
-import { checkToken } from './utils/auth';
 import './page.scss'
 
 import Category from './components/Categories/Categories'
@@ -66,38 +67,25 @@ const Categories : Array<Category> = [ // Array of categories
 ]
 
 export default function Home() {
-  const hasToken = checkToken();
-
   // Redirect to login page if token is not present
-  if (!hasToken) {
-    redirect('/login'); // Replace '/login' with your login page URL
-  }
-  
-  {/* 
-    This will randomize the categories, so that the categories will be different every time you refresh the page.
-    Still need to add a way to give categories that user want to see.
-  */}
 
-  const RandomCategories: Array<number> = [0]; // 0 is the new movies category, so it will always be there
-  for (let i = 0; i < 5; i++) {
-    let RandomNumber : number = Math.floor(Math.random() * Categories.length);
-    if (RandomCategories.includes(RandomNumber)) {
-      i--;
-      continue;
+  if (typeof localStorage !== 'undefined') {
+    const token = localStorage.getItem('token');
+    if (!token) {
+      redirect('/login');
     }
-    RandomCategories.push(RandomNumber);
   }
 
   return (
     <div className='main-wrapper'>
       <Category category={Categories[0]}/> {/* This is the new movies category, so it will always be there */}
-      <Category category={Categories[RandomCategories[1]]}/>
+      <Category category={Categories[1]}/>
       <Banner /> {/* Banner */}
-      <Category category={Categories[RandomCategories[2]]}/>
-      <Category category={Categories[RandomCategories[3]]}/>
+      <Category category={Categories[2]}/>
+      <Category category={Categories[3]}/>
       <Banner /> {/* Banner */}
-      <Category category={Categories[RandomCategories[4]]}/>
-      <Category category={Categories[RandomCategories[5]]}/>
+      <Category category={Categories[4]}/>
+      <Category category={Categories[5]}/>
     </div>
   )
 }
