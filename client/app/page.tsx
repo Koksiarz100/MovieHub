@@ -1,4 +1,6 @@
 import React from 'react'
+import { redirect } from 'next/navigation';
+import { checkToken } from './utils/auth';
 import './page.scss'
 
 import Category from './components/Categories/Categories'
@@ -64,7 +66,13 @@ const Categories : Array<Category> = [ // Array of categories
 ]
 
 export default function Home() {
+  const hasToken = checkToken();
 
+  // Redirect to login page if token is not present
+  if (!hasToken) {
+    redirect('/login'); // Replace '/login' with your login page URL
+  }
+  
   {/* 
     This will randomize the categories, so that the categories will be different every time you refresh the page.
     Still need to add a way to give categories that user want to see.

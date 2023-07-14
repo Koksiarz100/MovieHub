@@ -6,7 +6,7 @@ const jwt = require("jsonwebtoken");
 const app = express();
 console.log("Starting server...");
 
-const secretKey = 'secret';
+const secretKey = 'BhEeYBMJ?phhP3EFc5N-tASF33oqG!96b9NQvcsxTXNbASjG2yWV6LPEYyBjBQWi'; // Need to change this when deploying to production
 
 app.use(express.json());
 
@@ -28,6 +28,7 @@ function authenticateToken(req, res, next) {
   });
 }
 
+// This will be replaced with a database
 const movies = [
   {Title: "Movie 1", Description: "Description 1", Rating: 5},
   {Title: "Movie 2", Description: "Description 2", Rating: 4},
