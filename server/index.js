@@ -2,12 +2,14 @@ const fs = require("fs/promises");
 const express = require("express");
 const { v4: uuidv4 } = require("uuid");
 const jwt = require("jsonwebtoken");
+const cors = require("cors");
 
 const app = express();
 console.log("Starting server...");
 
 const secretKey = 'BhEeYBMJ?phhP3EFc5N-tASF33oqG!96b9NQvcsxTXNbASjG2yWV6LPEYyBjBQWi'; // Need to change this when deploying to production
 
+app.use(cors());
 app.use(express.json());
 
 // Middleware to verify the token
@@ -49,6 +51,7 @@ app.post("/auth", async (req, res) => {
   if (username === 'admin' && password === 'admin') {
     const token = jwt.sign({ username }, secretKey, { expiresIn: '1h' });
     return res.json({ token });
+    console.log("Token generated!");
   }
 
   res.status(401).json({ message: 'Invalid credentials' });
