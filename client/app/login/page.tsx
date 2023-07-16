@@ -1,37 +1,24 @@
 'use client'
 
-import { FormEvent, useState } from 'react';
+import { FormEvent, useEffect, useState } from 'react';
 import './page.scss'
-import { redirect } from 'next/navigation';
+import { useRouter } from 'next/router';
 import Login from './Login'
-
-function tokenCheck() {
-  if (typeof localStorage !== 'undefined') {
-    const token = localStorage.getItem('token');
-    if (!token) {
-      redirect('/login');
-    }
-    else {
-      redirect('../');
-    }
-  }
-}
 
 export default function page() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
 
-  if (typeof localStorage !== 'undefined') {
-    const token = localStorage.getItem('token');
-    if (token) {
-      redirect('../');
-    }
-  }
-  
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
     Login(username, password);
-    tokenCheck();
+    const router = useRouter();
+
+    useEffect(() => {
+      if (localStorage.getItem('token')) {
+        router.replace('/')
+      }
+    }, []);
   }
 
   return (
